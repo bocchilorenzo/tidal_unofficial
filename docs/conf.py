@@ -19,6 +19,7 @@ author = 'Lorenzo Bocchi'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['recommonmark',
+              'sphinx-press-theme',
               'sphinx.ext.autodoc',
               'sphinx.ext.viewcode']
 
