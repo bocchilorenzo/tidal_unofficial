@@ -10,11 +10,11 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="tidal_unofficial",
-    version="0.0.1",
+    version="0.0.2",
     description="An unofficial library to use Tidal's API where the authorization is not required",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://tidal-unofficial.readthedocs.io/",
+    url="https://github.com/bocchilorenzo/tidal_unofficial",
     author="Lorenzo Bocchi",
     author_email="lorenzobocchi99@yahoo.com",
     license="MIT",
