@@ -187,7 +187,7 @@ class TidalUnofficial:
 
         return json.loads(res.content)
 
-    def get_artist_albums(self, id, limit=25):
+    def get_artist_albums(self, id, limit=25, offset=0):
         """
         Get an artist's albums, EPs and singles by its ID.
 
@@ -197,16 +197,19 @@ class TidalUnofficial:
         :param limit: Results limit (default 25)
         :type limit: int
 
+        :param offset: Results offset
+        :type offset: int
+
         :return: List containing all the albums, EPs and singles from an artist.
         :rtype: list
         """
 
         res = request(
-            'get', f'{self.url}/artists/{id}/albums?limit={limit}&countryCode={self.countryCode}', headers=self.headers)
+            'get', f'{self.url}/artists/{id}/albums?limit={limit}&offset={offset}&countryCode={self.countryCode}', headers=self.headers)
 
         return json.loads(res.content)['items']
 
-    def get_artist_compilations(self, id, limit=25):
+    def get_artist_compilations(self, id, limit=25, offset=0):
         """
         Get compliations that an artist has appeared on by artist id.
 
@@ -216,16 +219,19 @@ class TidalUnofficial:
         :param limit: Results limit (default 25)
         :type limit: int
 
+        :param offset: Results offset
+        :type offset: int
+
         :return: List containing all the compliations that an artist has appeared on.
         :rtype: list
         """
 
         res = request(
-            'get', f'{self.url}/artists/{id}/albums?filter=COMPILATIONS&limit={limit}&countryCode={self.countryCode}', headers=self.headers)
+            'get', f'{self.url}/artists/{id}/albums?filter=COMPILATIONS&limit={limit}&offset={offset}&countryCode={self.countryCode}', headers=self.headers)
 
         return json.loads(res.content)['items']
 
-    def get_artist_top_tracks(self, id, limit=25):
+    def get_artist_top_tracks(self, id, limit=25, offset=0):
         """
         Get an artist's top tracks its id.
 
@@ -235,16 +241,19 @@ class TidalUnofficial:
         :param limit: Results limit (default 25)
         :type limit: int
 
+        :param offset: Results offset
+        :type offset: int
+
         :return: List containing the artist's top N tracks.
         :rtype: list
         """
 
         res = request(
-            'get', f'{self.url}/artists/{id}/toptracks?limit={limit}&countryCode={self.countryCode}', headers=self.headers)
+            'get', f'{self.url}/artists/{id}/toptracks?limit={limit}&offset={offset}&countryCode={self.countryCode}', headers=self.headers)
 
         return json.loads(res.content)['items']
 
-    def get_similar_artists(self, id, limit=25):
+    def get_similar_artists(self, id, limit=25, offset=0):
         """
         Get artists similar to another by its ID.
 
@@ -254,12 +263,15 @@ class TidalUnofficial:
         :param limit: Results limit (default 25)
         :type limit: int
 
+        :param offset: Results offset
+        :type offset: int
+
         :return: List containing all the artists similar to another.
         :rtype: list
         """
 
         res = request(
-            'get', f'{self.url}/artists/{id}/similar?limit={limit}&countryCode={self.countryCode}', headers=self.headers)
+            'get', f'{self.url}/artists/{id}/similar?limit={limit}&offset={offset}&countryCode={self.countryCode}', headers=self.headers)
 
         return json.loads(res.content)['items']
 
@@ -279,19 +291,22 @@ class TidalUnofficial:
 
         return json.loads(res.content)
 
-    def get_playlist_tracks(self, uuid, limit=25):
+    def get_playlist_tracks(self, uuid, limit=25, offset=0):
         """
         Get a playlist's tracks by its UUID.
 
         :param uuid: Playlist's UUID
         :type id: str
 
+        :param offset: Results offset
+        :type offset: int
+
         :return: List containing the tracks from a playlist.
         :rtype: list
         """
 
         res = request(
-            'get', f'{self.url}/playlists/{uuid}/tracks?&countryCode={self.countryCode}&limit={limit}', headers=self.headers)
+            'get', f'{self.url}/playlists/{uuid}/tracks?&countryCode={self.countryCode}&limit={limit}&offset={offset}', headers=self.headers)
 
         return json.loads(res.content)['items']
 
